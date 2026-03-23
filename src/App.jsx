@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { getCharacters } from './api';
+import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
+import Home from './pages/Home';
+import Characters from './pages/Characters';
 
 function App() {
     const [characters, setCharacters] = useState([]);
@@ -17,11 +20,10 @@ function App() {
       <div>
             <h1>Dungeons & Dragons Character Manager</h1>
 
-            {characters.map(c => (
-                <div key={c.id}>
-                    {c.name}
-                </div>
-            )) }
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/characters" element={<Characters characters={characters} />} />
+            </Routes>
       </div>
   )
 }
