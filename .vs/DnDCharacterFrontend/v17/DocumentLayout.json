@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\cadeh\\source\\repos\\DnDCharacterFrontend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\cadeh\\source\\repos\\DnDCharacterFrontend\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\cadeh\\source\\repos\\DnDCharacterFrontend\\src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
@@ -39,6 +43,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\cadeh\\source\\repos\\DnDCharacterFrontend\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\cadeh\\source\\repos\\DnDCharacterFrontend\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-03-23T07:13:31.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "main.jsx",
               "DocumentMoniker": "C:\\Users\\cadeh\\source\\repos\\DnDCharacterFrontend\\src\\main.jsx",
               "RelativeDocumentMoniker": "src\\main.jsx",
@@ -51,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Characters.jsx",
               "DocumentMoniker": "C:\\Users\\cadeh\\source\\repos\\DnDCharacterFrontend\\src\\pages\\Characters.jsx",
               "RelativeDocumentMoniker": "src\\pages\\Characters.jsx",
@@ -59,12 +76,11 @@
               "RelativeToolTip": "src\\pages\\Characters.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-03-23T06:51:46.511Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T06:51:46.511Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "App.css",
               "DocumentMoniker": "C:\\Users\\cadeh\\source\\repos\\DnDCharacterFrontend\\src\\App.css",
               "RelativeDocumentMoniker": "src\\App.css",
@@ -72,12 +88,11 @@
               "RelativeToolTip": "src\\App.css",
               "ViewState": "AgIAAD0AAAAAAAAAAAAAwF0AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-03-23T06:50:40.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T06:50:40.444Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Home.jsx",
               "DocumentMoniker": "C:\\Users\\cadeh\\source\\repos\\DnDCharacterFrontend\\src\\pages\\Home.jsx",
               "RelativeDocumentMoniker": "src\\pages\\Home.jsx",
@@ -85,12 +100,11 @@
               "RelativeToolTip": "src\\pages\\Home.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-03-23T06:50:31.235Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T06:50:31.235Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "App.jsx",
               "DocumentMoniker": "C:\\Users\\cadeh\\source\\repos\\DnDCharacterFrontend\\src\\App.jsx",
               "RelativeDocumentMoniker": "src\\App.jsx",
@@ -98,8 +112,7 @@
               "RelativeToolTip": "src\\App.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2026-03-23T06:38:03.132Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T06:38:03.132Z"
             }
           ]
         }
