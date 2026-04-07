@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { getCharacters } from './api';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import './App.css';
 import Home from './pages/Home';
 import Characters from './pages/Characters';
+import CharacterDetails from './pages/CharacterDetails';
 
 function App() {
+    let nav = useNavigate();
+
     const [characters, setCharacters] = useState([]);
 
     useEffect(() => {
@@ -20,10 +23,15 @@ function App() {
       <div>
             <h1>Dungeons & Dragons Character Manager</h1>
 
+            <button onClick={() => nav("/")}>Home</button>
+            <button onClick={() => nav("/characters")}>Characters</button>
+
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/characters" element={<Characters characters={characters} />} />
+                <Route path="/characters/:id" element={<CharacterDetails />} />
             </Routes>
+
       </div>
   )
 }

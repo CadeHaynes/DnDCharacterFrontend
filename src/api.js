@@ -6,3 +6,10 @@ export async function getCharacters() {
     });
     return response.json();
 }
+
+export async function getCharacter(id) {
+    const response = await fetch(`${BASE_URL}/Character/${id}`, {
+        method: 'GET'
+    });
+    return response.json();
+}
