@@ -16,6 +16,8 @@ export default function CharacterDetails() {
         return (
             <div>
 
+                <h2>Characters</h2>
+
                 <h2>Loading...</h2>
 
             </div>
@@ -25,10 +27,39 @@ export default function CharacterDetails() {
         return (
             <div>
 
+                <h2>Characters</h2>
+
                 <h2>{character.name}</h2>
 
                 <h3>Stats</h3>
-                <p>STR: {character.strength}</p>
+                <p> <strong>STR:</strong> {character.strength} <br />
+                    <strong>DEX:</strong> {character.dexterity} <br />
+                    <strong>CON:</strong> {character.constitution} <br />
+                    <strong>INT:</strong> {character.intelligence} <br />
+                    <strong>WIS:</strong> {character.wisdom} <br />
+                    <strong>CHA:</strong> {character.charisma}</p>
+
+                <h3>Items</h3>
+                {character.items && character.items.length > 0 ? (
+                    character.items.map(item => (
+                        <div key={item.id}>
+                            <strong>{item.name}</strong>: {item.description}
+                        </div>
+                    ))
+                ) : (
+                    <p>No items</p>
+                )}
+
+                <h3>Abilities</h3>
+                {character.abilities && character.abilities.length > 0 ? (
+                    character.abilities.map(ability => (
+                        <div key={ability.id}>
+                            <strong>{ability.name}</strong>: {ability.description}
+                        </div>
+                    ))
+                ) : (
+                    <p>No abilities</p>
+                )}
 
             </div>
         )
