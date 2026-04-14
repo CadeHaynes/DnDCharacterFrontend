@@ -6,6 +6,7 @@ import './App.css';
 import Home from './pages/Home';
 import Characters from './pages/Characters';
 import CharacterDetails from './pages/CharacterDetails';
+import CharacterEdit from './pages/CharacterEdit';
 
 function App() {
     let nav = useNavigate();
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/characters" element={<Characters characters={characters} />} />
                 <Route path="/characters/:id" element={<CharacterDetails />} />
+                <Route path="/characters/:id/edit" element={<CharacterEdit />} />
             </Routes>
 
       </div>

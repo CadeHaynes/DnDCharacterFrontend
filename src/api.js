@@ -13,3 +13,15 @@ export async function getCharacter(id) {
     });
     return response.json();
 }
+
+export async function updateCharacter(id, character) {
+    console.log(character);
+
+    await fetch(`${BASE_URL}/Character/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(character)
+    });
+}

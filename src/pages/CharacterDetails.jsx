@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { getCharacter } from '../api';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+
 export default function CharacterDetails() {
+    let nav = useNavigate();
 
     const { id } = useParams();
     const [character, setCharacter] = useState(null);
@@ -30,6 +32,8 @@ export default function CharacterDetails() {
                 <h2>Characters</h2>
 
                 <h2>{character.name}</h2>
+
+                <button onClick={() => nav(`/characters/${character.id}/edit`)}>Edit</button>
 
                 <h3>Stats</h3>
                 <p> <strong>STR:</strong> {character.strength} <br />
