@@ -48,8 +48,19 @@ export default function CharacterEdit() {
 
                     <h2>Edit Character</h2>
 
-                    <input name="name" value={character.name} onChange={handleChange}></input>
+                    <h2>{character.name}</h2>
 
+                    <p>Name: <input name="name" value={character.name} onChange={handleChange}></input> </p>
+
+                    <h3>Stats</h3>
+                    <p> <strong>STR: </strong> <input name="strength" value={character.strength} onChange={handleChange}></input> <br />
+                        <strong>DEX: </strong> <input name="dexterity" value={character.dexterity} onChange={handleChange}></input> <br />
+                        <strong>CON: </strong> <input name="constitution" value={character.constitution} onChange={handleChange}></input> <br />
+                        <strong>INT: </strong> <input name="intelligence" value={character.intelligence} onChange={handleChange}></input> <br />
+                        <strong>WIS: </strong> <input name="wisdom" value={character.wisdom} onChange={handleChange}></input> <br />
+                        <strong>CHA: </strong> <input name="charisma" value={character.charisma} onChange={handleChange}></input></p>
+
+                    <br />
                     <button type="submit">Save Changes</button>
 
                 </form>
