@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getCharacter } from '../api';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
 export default function CharacterDetails() {
     let nav = useNavigate();
@@ -47,7 +47,7 @@ export default function CharacterDetails() {
                 {character.items && character.items.length > 0 ? (
                     character.items.map(item => (
                         <div key={item.id}>
-                            <strong>{item.name}</strong>: {item.description}
+                            <span onClick={() => nav(`/item/${item.id}/edit`)} style={{cursor: 'pointer', color: 'blue'}}><strong>{item.name}</strong>:</span> {item.description}
                         </div>
                     ))
                 ) : (

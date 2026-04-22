@@ -25,3 +25,10 @@ export async function updateCharacter(id, character) {
         body: JSON.stringify(character)
     });
 }
+
+export async function getItem(id) {
+    const response = await fetch(`${BASE_URL}/Item/${id}`, {
+        method: 'GET'
+    });
+    return response.json();
+}

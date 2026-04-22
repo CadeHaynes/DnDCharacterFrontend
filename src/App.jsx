@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Characters from './pages/Characters';
 import CharacterDetails from './pages/CharacterDetails';
 import CharacterEdit from './pages/CharacterEdit';
+import ItemEdit from './pages/ItemEdit';
 
 function App() {
     let nav = useNavigate();
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/characters" element={<Characters characters={characters} />} />
                 <Route path="/characters/:id" element={<CharacterDetails />} />
                 <Route path="/characters/:id/edit" element={<CharacterEdit />} />
+                <Route path="/item/:id/edit" element={<ItemEdit/> }/>
             </Routes>
 
       </div>
