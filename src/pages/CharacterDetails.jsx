@@ -53,6 +53,7 @@ export default function CharacterDetails() {
                 ) : (
                     <p>No items</p>
                 )}
+                <button>New Item</button>
 
                 <h3>Abilities</h3>
                 {character.abilities && character.abilities.length > 0 ? (
@@ -64,6 +65,7 @@ export default function CharacterDetails() {
                 ) : (
                     <p>No abilities</p>
                 )}
+                <button>New Ability</button>
 
             </div>
         )

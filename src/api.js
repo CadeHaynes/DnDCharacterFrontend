@@ -32,3 +32,13 @@ export async function getItem(id) {
     });
     return response.json();
 }
+
+export async function updateItem(id, item) {
+    await fetch(`${BASE_URL}/Item/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(item)
+    });
+}

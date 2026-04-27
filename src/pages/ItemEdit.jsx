@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getItem } from '../api';
+import { getItem, updateItem } from '../api';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export default function ItemEdit() {
@@ -25,9 +25,9 @@ export default function ItemEdit() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        //await updateItem(id, item);
+        await updateItem(id, item);
 
-        //nav(`/characters/${item.characterId}`);
+        nav(`/characters/${item.characterId}`);
     }
 
     if (!item) {
@@ -56,6 +56,7 @@ export default function ItemEdit() {
                     <p>Description: <textarea name="description" value={item.description} onChange={handleChange} style={{ resize: 'none', verticalAlign: 'top', width: '300px', height: '80px' }}></textarea> </p>
 
                     <button type="submit">Save Changes</button>
+                    <button type="button">Delete</button>
 
                 </form>
             </div>
