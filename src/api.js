@@ -42,3 +42,9 @@ export async function updateItem(id, item) {
         body: JSON.stringify(item)
     });
 }
+
+export async function deleteItem(id) {
+    await fetch(`${BASE_URL}/Item/${id}`, {
+        method: "DELETE"
+    });
+}
