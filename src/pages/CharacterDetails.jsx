@@ -59,7 +59,7 @@ export default function CharacterDetails() {
                 {character.abilities && character.abilities.length > 0 ? (
                     character.abilities.map(ability => (
                         <div key={ability.id}>
-                            <strong>{ability.name}</strong>: {ability.description}
+                            <span onClick={() => nav(`/ability/${ability.id}/edit`)} style={{ cursor: 'pointer', color: 'blue' }}><strong>{ability.name}</strong>:</span> {ability.description}
                         </div>
                     ))
                 ) : (

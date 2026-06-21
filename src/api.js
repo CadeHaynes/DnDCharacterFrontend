@@ -48,3 +48,26 @@ export async function deleteItem(id) {
         method: "DELETE"
     });
 }
+
+export async function getAbility(id) {
+    const response = await fetch(`${BASE_URL}/Ability/${id}`, {
+        method: 'GET'
+    });
+    return response.json();
+}
+
+export async function updateAbility(id, ability) {
+    await fetch(`${BASE_URL}/Ability/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(ability)
+    });
+}
+
+export async function deleteAbility(id) {
+    await fetch(`${BASE_URL}/Ability/${id}`, {
+        method: "DELETE"
+    });
+}
