@@ -34,8 +34,8 @@ function App() {
                 <Route path="/characters" element={<Characters characters={characters} />} />
                 <Route path="/characters/:id" element={<CharacterDetails />} />
                 <Route path="/characters/:id/edit" element={<CharacterEdit />} />
-                <Route path="/item/:id/edit" element={<ItemEdit />} />
-                <Route path="/ability/:id/edit" element={<AbilityEdit />} />
+                <Route path="/characters/:characterId/item/:id" element={<ItemEdit />} />
+                <Route path="/characters/:characterId/ability/:id" element={<AbilityEdit />} />
             </Routes>
 
       </div>

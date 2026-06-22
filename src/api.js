@@ -1,5 +1,6 @@
 ﻿const BASE_URL = "https://localhost:7299/api";
 
+// Character
 export async function getCharacters() {
     const response = await fetch(`${BASE_URL}/Character`, {
         method: 'GET'
@@ -26,6 +27,7 @@ export async function updateCharacter(id, character) {
     });
 }
 
+// Item
 export async function getItem(id) {
     const response = await fetch(`${BASE_URL}/Item/${id}`, {
         method: 'GET'
@@ -49,6 +51,17 @@ export async function deleteItem(id) {
     });
 }
 
+export async function createItem(characterId, item) {
+    await fetch(`${BASE_URL}/Item/character/${characterId}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(item)
+    });
+}
+
+// Ability
 export async function getAbility(id) {
     const response = await fetch(`${BASE_URL}/Ability/${id}`, {
         method: 'GET'
@@ -69,5 +82,15 @@ export async function updateAbility(id, ability) {
 export async function deleteAbility(id) {
     await fetch(`${BASE_URL}/Ability/${id}`, {
         method: "DELETE"
+    });
+}
+
+export async function createAbility(characterId, ability) {
+    await fetch(`${BASE_URL}/Ability/character/${characterId}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(ability)
     });
 }

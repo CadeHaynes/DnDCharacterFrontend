@@ -47,25 +47,25 @@ export default function CharacterDetails() {
                 {character.items && character.items.length > 0 ? (
                     character.items.map(item => (
                         <div key={item.id}>
-                            <span onClick={() => nav(`/item/${item.id}/edit`)} style={{cursor: 'pointer', color: 'blue'}}><strong>{item.name}</strong>:</span> {item.description}
+                            <span onClick={() => nav(`/characters/${character.id}/item/${item.id}`)} style={{cursor: 'pointer', color: 'blue'}}><strong>{item.name}</strong>:</span> {item.description}
                         </div>
                     ))
                 ) : (
                     <p>No items</p>
                 )}
-                <button>New Item</button>
+                <button onClick={() => nav(`/characters/${character.id}/item/new`)}>New Item</button>
 
                 <h3>Abilities</h3>
                 {character.abilities && character.abilities.length > 0 ? (
                     character.abilities.map(ability => (
                         <div key={ability.id}>
-                            <span onClick={() => nav(`/ability/${ability.id}/edit`)} style={{ cursor: 'pointer', color: 'blue' }}><strong>{ability.name}</strong>:</span> {ability.description}
+                            <span onClick={() => nav(`/characters/${character.id}/ability/${ability.id}`)} style={{ cursor: 'pointer', color: 'blue' }}><strong>{ability.name}</strong>:</span> {ability.description}
                         </div>
                     ))
                 ) : (
                     <p>No abilities</p>
                 )}
-                <button>New Ability</button>
+                <button onClick={() => nav(`/characters/${character.id}/ability/new`)}>New Ability</button>
 
             </div>
         )

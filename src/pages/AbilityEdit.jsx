@@ -1,20 +1,27 @@
 import { useState, useEffect } from 'react';
-import { getAbility, updateAbility, deleteAbility } from '../api';
+import { getAbility, updateAbility, deleteAbility, createAbility } from '../api';
 import { useParams, useNavigate } from 'react-router-dom';
 
-export default function ItemEdit() {
+export default function AbilityEdit() {
     let nav = useNavigate();
 
-    const { id } = useParams();
-    const [ability, setAbility] = useState(null);
+    const { characterId, id } = useParams();
+    const [ability, setAbility] = useState({
+        name: '',
+        description: ''
+    });
     const [abilityName, setAbilityName] = useState('');
 
+    const isNew = id === "new";
+
     useEffect(() => {
+        if (isNew) return;
+
         getAbility(id).then(data => {
             setAbility(data);
             setAbilityName(data.name);
         });
-    }, [id]);
+    }, [id, isNew]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,9 +34,14 @@ export default function ItemEdit() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await updateAbility(id, ability);
+        if (isNew) {
+            await createAbility(characterId, ability);
+        }
+        else {
+            await updateAbility(id, ability);
+        }
 
-        nav(`/characters/${ability.characterId}`);
+        nav(`/characters/${characterId}`);
     }
 
     const handleDelete = async (e) => {
@@ -37,14 +49,14 @@ export default function ItemEdit() {
 
         await deleteAbility(id);
 
-        nav(`/characters/${ability.characterId}`);
+        nav(`/characters/${characterId}`);
     }
 
     if (!ability) {
         return (
             <div>
 
-            <h2>Edit Ability</h2>
+            <h2>{isNew ? "Create" : "Edit"} Ability</h2>
 
             <h2>Loading...</h2>
 
@@ -56,7 +68,7 @@ export default function ItemEdit() {
             <div>
                 <form onSubmit={handleSubmit}>
 
-                    <h2>Edit Ability</h2>
+                    <h2>{isNew ? "Create" : "Edit"} Ability</h2>
 
                     <h2>{abilityName}</h2>
 
@@ -66,7 +78,7 @@ export default function ItemEdit() {
                     <p>Description: <textarea name="description" value={ability.description} onChange={handleChange} style={{ resize: 'none', verticalAlign: 'top', width: '300px', height: '80px' }}></textarea> </p>
 
                     <button type="submit">Save</button>
-                    <button type="button" onClick={() => nav(`/characters/${ability.characterId}`)}>Cancel</button>
+                    <button type="button" onClick={() => nav(`/characters/${characterId}`)}>Cancel</button>
                     <button type="button" onClick={handleDelete}>Delete</button>
 
                 </form>
