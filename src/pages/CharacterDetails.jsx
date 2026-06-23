@@ -8,11 +8,27 @@ export default function CharacterDetails() {
     const { id } = useParams();
     const [character, setCharacter] = useState(null);
 
+    const [openEntities, setOpenEntities] = useState(new Set());
+
     useEffect(() => {
         getCharacter(id).then(data => {
             setCharacter(data);
         });
     }, [id]);
+
+    const toggleEntity = (entityName) => {
+        setOpenEntities(prev => {
+            const newSet = new Set(prev);
+
+            if (newSet.has(entityName)) {
+                newSet.delete(entityName);
+            }
+            else {
+                newSet.add(entityName);
+            }
+            return newSet;
+        });
+    };
 
     if (!character) {
         return (
@@ -43,30 +59,37 @@ export default function CharacterDetails() {
                     <strong>WIS:</strong> {character.wisdom} <br />
                     <strong>CHA:</strong> {character.charisma}</p>
 
-                <h3>Items</h3>
+                <h3>Items <br />
+                <button onClick={() => nav(`/characters/${character.id}/item/new`)}>New Item</button></h3>
+
                 {character.items && character.items.length > 0 ? (
                     character.items.map(item => (
                         <div key={item.id}>
-                            <span onClick={() => nav(`/characters/${character.id}/item/${item.id}`)} style={{cursor: 'pointer', color: 'blue'}}><strong>{item.name}</strong>:</span> {item.description}
+                            <span onClick={() => toggleEntity(item.name)} style={{ cursor: 'pointer', color: 'blue' }}><strong><p>{item.name} </p></strong></span>
+                            {openEntities.has(item.name) && (< span style={{ whiteSpace: 'pre-line' }}> <p>{item.description}</p> </span>)}
+                            <button onClick={() => nav(`/characters/${character.id}/item/${item.id}`)}>Edit</button>
+                            <button>Delete</button>
                         </div>
                     ))
                 ) : (
                     <p>No items</p>
                 )}
-                <button onClick={() => nav(`/characters/${character.id}/item/new`)}>New Item</button>
 
-                <h3>Abilities</h3>
+                <h3>Abilities <br />
+                <button onClick={() => nav(`/characters/${character.id}/ability/new`)}>New Ability</button></h3>                
+
                 {character.abilities && character.abilities.length > 0 ? (
                     character.abilities.map(ability => (
                         <div key={ability.id}>
-                            <span onClick={() => nav(`/characters/${character.id}/ability/${ability.id}`)} style={{ cursor: 'pointer', color: 'blue' }}><strong>{ability.name}</strong>:</span> {ability.description}
+                            <span onClick={() => toggleEntity(ability.name)} style={{ cursor: 'pointer', color: 'blue' }}><strong><p>{ability.name}</p></strong></span>
+                            {openEntities.has(ability.name) && (<span style={{ whiteSpace: 'pre-line' }}><p>{ability.description}</p></span>)}
+                            <button onClick={() => nav(`/characters/${character.id}/ability/${ability.id}`)}>Edit</button>
+                            <button>Delete</button>
                         </div>
                     ))
                 ) : (
                     <p>No abilities</p>
                 )}
-                <button onClick={() => nav(`/characters/${character.id}/ability/new`)}>New Ability</button>
-
             </div>
         )
     }
