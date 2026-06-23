@@ -13,15 +13,6 @@ import AbilityEdit from './pages/AbilityEdit';
 function App() {
     let nav = useNavigate();
 
-    const [characters, setCharacters] = useState([]);
-
-    useEffect(() => {
-        getCharacters().then(data => {
-            console.log("API Response: ", data);
-            setCharacters(data);
-        })
-    }, []);
-
     return (
       <div>
             <h1>Dungeons & Dragons Character Manager</h1>
@@ -31,7 +22,7 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/characters" element={<Characters characters={characters} />} />
+                <Route path="/characters" element={<Characters />} />
                 <Route path="/characters/:id" element={<CharacterDetails />} />
                 <Route path="/characters/:id/edit" element={<CharacterEdit />} />
                 <Route path="/characters/:characterId/item/:id" element={<ItemEdit />} />

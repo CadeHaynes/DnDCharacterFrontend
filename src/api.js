@@ -16,14 +16,28 @@ export async function getCharacter(id) {
 }
 
 export async function updateCharacter(id, character) {
-    console.log(character);
-
     await fetch(`${BASE_URL}/Character/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(character)
+    });
+}
+
+export async function createCharacter(character) {
+    await fetch(`${BASE_URL}/Character`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(character)
+    });
+}
+
+export async function deleteCharacter(id) {
+    await fetch(`${BASE_URL}/Character/${id}`, {
+        method: "DELETE"
     });
 }
 

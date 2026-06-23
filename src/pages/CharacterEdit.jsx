@@ -1,18 +1,26 @@
 import { useState, useEffect } from 'react';
-import { getCharacter, updateCharacter } from '../api';
+import { getCharacter, updateCharacter, createCharacter, deleteCharacter } from '../api';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export default function CharacterEdit() {
     let nav = useNavigate();
 
     const { id } = useParams();
-    const [character, setCharacter] = useState(null);
+    const [character, setCharacter] = useState({
+        name: ''
+    });
+    const [characterName, setCharacterName] = useState('');
+
+    const isNew = id === "new";
 
     useEffect(() => {
+        if (isNew) return;
+
         getCharacter(id).then(data => {
             setCharacter(data);
+            setCharacterName(data.name);
         });
-    }, [id]);
+    }, [id, isNew]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,16 +33,30 @@ export default function CharacterEdit() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await updateCharacter(id, character);
 
-        nav(`/characters/${id}`);
+        if (isNew) {
+            await createCharacter(character);
+        }
+        else {
+            await updateCharacter(id, character);
+        }
+
+        nav(`/characters/${character.id}`);
+    }
+
+    const handleDelete = async (e) => {
+        e.preventDefault();
+
+        await deleteCharacter(id);
+
+        nav(`/characters/`);
     }
 
     if (!character) {
         return (
             <div>
 
-            <h2>Edit Character</h2>
+            <h2>{isNew ? "Create" : "Edit"} Character</h2>
 
             <h2>Loading...</h2>
 
@@ -46,9 +68,9 @@ export default function CharacterEdit() {
             <div>
                 <form onSubmit={handleSubmit}>
 
-                    <h2>Edit Character</h2>
+                    <h2>{isNew ? "Create" : "Edit"} Character</h2>
 
-                    <h2>{character.name}</h2>
+                    <h2>{characterName}</h2>
 
                     <p>Name: <input name="name" value={character.name} onChange={handleChange}></input> </p>
 
@@ -62,6 +84,7 @@ export default function CharacterEdit() {
 
                     <br />
                     <button type="submit">Save Changes</button>
+                    <button type="button" onClick={handleDelete}>Delete</button>
 
                 </form>
             </div>
