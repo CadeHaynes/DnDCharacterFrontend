@@ -1,4 +1,4 @@
-﻿const BASE_URL = "https://localhost:7299/api";
+﻿const BASE_URL = "http://localhost:5062/api";
 
 // Character
 export async function getCharacters() {
