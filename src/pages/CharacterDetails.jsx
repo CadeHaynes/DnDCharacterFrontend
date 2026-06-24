@@ -66,9 +66,11 @@ export default function CharacterDetails() {
                     character.items.map(item => (
                         <div key={item.id}>
                             <span onClick={() => toggleEntity(item.name)} style={{ cursor: 'pointer', color: 'blue' }}><strong><p>{item.name} </p></strong></span>
-                            {openEntities.has(item.name) && (< span style={{ whiteSpace: 'pre-line' }}> <p>{item.description}</p> </span>)}
+                            {openEntities.has(item.name) && (< span style={{ whiteSpace: 'pre-line' }}> <p>{item.description}</p>
                             <button onClick={() => nav(`/characters/${character.id}/item/${item.id}`)}>Edit</button>
                             <button>Delete</button>
+                            </span>)}
+                            
                         </div>
                     ))
                 ) : (
@@ -82,9 +84,10 @@ export default function CharacterDetails() {
                     character.abilities.map(ability => (
                         <div key={ability.id}>
                             <span onClick={() => toggleEntity(ability.name)} style={{ cursor: 'pointer', color: 'blue' }}><strong><p>{ability.name}</p></strong></span>
-                            {openEntities.has(ability.name) && (<span style={{ whiteSpace: 'pre-line' }}><p>{ability.description}</p></span>)}
+                            {openEntities.has(ability.name) && (<span style={{ whiteSpace: 'pre-line' }}><p>{ability.description}</p>
                             <button onClick={() => nav(`/characters/${character.id}/ability/${ability.id}`)}>Edit</button>
                             <button>Delete</button>
+                            </span>)}
                         </div>
                     ))
                 ) : (

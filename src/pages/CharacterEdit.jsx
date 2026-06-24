@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getCharacter, updateCharacter, createCharacter, deleteCharacter } from '../api';
+import { getCharacter, getNewestCharacter, updateCharacter, createCharacter, deleteCharacter } from '../api';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export default function CharacterEdit() {
@@ -33,15 +33,18 @@ export default function CharacterEdit() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-
         if (isNew) {
             await createCharacter(character);
+
+            const charDetails = await getNewestCharacter();
+
+            if (!charDetails) nav(`/characters`);
+            else nav(`/characters/${charDetails.id}`);
         }
         else {
             await updateCharacter(id, character);
+            nav(`/characters/${character.id}`);
         }
-
-        nav(`/characters/${character.id}`);
     }
 
     const handleDelete = async (e) => {

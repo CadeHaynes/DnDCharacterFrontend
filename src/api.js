@@ -15,6 +15,13 @@ export async function getCharacter(id) {
     return response.json();
 }
 
+export async function getNewestCharacter() {
+    const response = await fetch(`${BASE_URL}/Character/new`, {
+        method: 'GET'
+    });
+    return response.json();
+}
+
 export async function updateCharacter(id, character) {
     await fetch(`${BASE_URL}/Character/${id}`, {
         method: "PUT",
